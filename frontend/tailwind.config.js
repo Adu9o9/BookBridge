@@ -8,6 +8,9 @@ export default {
     extend: {screens: {
       'sm': '430px', // Add a custom breakpoint at 425px
     }},
+    customColor: {
+      dark: 'rgba(15, 23,42, 1)',
+    }
   },
   plugins: [],
 }

@@ -6,6 +6,7 @@ import PasswordIcon from '@mui/icons-material/Password';
 import Button from '@mui/material/Button';
 import ImageSection from '../components/ImageSection'
 import EmailIcon from '@mui/icons-material/Email';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 
 const Signup = () => {
@@ -22,7 +23,7 @@ const Signup = () => {
             </InputAdornment>
           ),
         }} variant="outlined" sx={{mt:2 , width:"80%"}}/>
-          <TextField id="outlined-basic2"  label="username" InputProps={{
+          <TextField id="outlined-basic2"  label="Full Name" InputProps={{
           startAdornment: (
             <InputAdornment position="start">
               <AccountCircle />
