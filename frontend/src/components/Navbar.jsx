@@ -10,34 +10,30 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import Button  from '@mui/material/Button';
 
+import './Navbar.css'
+
+
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CustomDialog = () => {
-  const [open, setOpen] = useState(false);
-}
 
-const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-
-const handleClose = (e) => {
-    console.log("Clicked close")
-    setOpen(false);
-    console.log(open)
-  };  
 
 const Navbar = () => {
   const {isDark , setIsDark} = useBackground();
   const [check , setChecked] = useState(false);
-  const [open, setOpen] = React.useState(false);
-  
-  const handleAccount = (e) => {
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
     setOpen(true);
-  }
- 
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
 
   const handleSwitch = (e)=>{
     console.log(e.target.checked)
@@ -47,10 +43,10 @@ const Navbar = () => {
   return (
     <div>
         <div className={`flex flex-row w-[100%] rounded-t-xl ${!isDark?"bg-slate-400":"bg-slate-200"} opacity-1 h-20 flex-wrap`} id='navbar'>
-            <div className='text-4xl font-semibold pl-5 text-blue-700 h-[100%] w-[50%] flex items-center'>
+            <div className='sm:text-4xl text-2xl font-semibold sm:pl-5 pl-0 text-blue-700 h-[100%] w-[50%] flex items-center'>
                 <h1>BookBridge</h1>
             </div>
-            <div id='nav-buttons-holder' className='flex flex-row  items-center gap-10 w-[50%] justify-end pr-5'>
+            <div id='nav-buttons-holder' className='flex flex-row  items-center sm:gap-10 w-[50%] justify-end sm:pr-5 pr-0 gap-1'>
                 
                 <div id='toggle-dark-mode' className='flex justify-center items-center'>
                     <label className="inline-flex items-center relative">
@@ -89,9 +85,10 @@ const Navbar = () => {
                 </div>
 
                 <div id='nav-buttons-right' className='flex gap-5'>
-                <div id='profile-button' onClick={handleAccount}>
+                <div id='profile-button' className='sm:block  hidden' >
                     <button
                       className="group flex items-center justify-start w-11 h-11 bg-white rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-lg active:translate-x-1 active:translate-y-1"
+                      onClick={handleClickOpen}
                     >
                       <div
                         className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3"
@@ -103,32 +100,36 @@ const Navbar = () => {
                       >
                         Account
                       </div>
-                      <Dialog
-                        open={open}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={handleClose}
-                        aria-describedby="alert-dialog-slide-description"
-                      >
-                        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
-                        <DialogContent>
-                          <DialogContentText id="alert-dialog-slide-description">
-                            Let Google help apps determine location. This means sending anonymous
-                            location data to Google, even when no apps are running.
-                          </DialogContentText>
-                        </DialogContent>
-                        <DialogActions>
-                          <Button onClick={handleClose}>Disagree</Button>
-                          <Button onClick={handleClose}>Agree</Button>
-                        </DialogActions>
-                      </Dialog>
+                  
                     </button>
-                
+                    <Dialog
+                open={open}
+                TransitionComponent={Transition}
+                fullWidth
+                keepMounted
+                onClose={handleClose}
+                aria-describedby="alert-dialog-slide-description"
+              >
+                <DialogTitle>{"Account Details"}</DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-slide-description">
+                     <ul className={`${!isDark?"bg-slate-800":""}`}>
+                      <li className='flex justify-between border-b-2'>Full Name:<span>John Doe</span></li>
+                      <li className='flex justify-between border-b-2'>Username: <span>johndoe</span></li>
+                      <li className='flex justify-between border-b-2'>Joined on: <span>11-9-2001</span></li>
+                      <li className='flex justify-between border-b-2'>Books Donated: <span>68</span></li>
+                     </ul>
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>Close</Button>
+                </DialogActions>
+              </Dialog>
                 
  
                 </div>
 
-                <div id='logout-button'>
+                <div id='logout-button' className='sm:block hidden'>
                     <button
                       className="group flex items-center justify-start w-11 h-11 bg-white rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-lg active:translate-x-1 active:translate-y-1"
                     >
@@ -149,10 +150,22 @@ const Navbar = () => {
                     </button>
 
                 </div>
+                <div id='nav-button-holder-sm' className='sm:hidden flex justify-center gap-10'>
+                    < input type="checkbox" id="checkbox"/>
+                        <label for="checkbox" class="toggle">
+                            <div className="bars" id="bar1"></div>
+                            <div className="bars" id="bar2"></div>
+                            <div className="bars" id="bar3"></div>
+                        </label>
+                </div>
+                </div>
+                <div id='nav-opener' className='flex flex-col w-[90%] left-4 top-24 h-full bg-blue-500 absolute'>
+                  <div id='nav-opener-container' className='h-1/2 bg-red-500'></div>
                 </div>
 
                 
             </div>
+            
         </div>
       
     </div>

@@ -6,7 +6,7 @@ const Latest = () => {
   return (
     <>
 
-            <div id='latestbooks' className={`w-[30%] h-64 ${!isDark?"bg-slate-500":"bg-white"} rounded-lg shadow-lg transition-all duration-500 ease-custom border-4
+            <div id='latestbooks' className={`sm:w-[30%] w-[99%] sm:h-64 sm:ml-0 ml-1 ${!isDark?"bg-slate-500":"bg-white"} rounded-lg shadow-lg transition-all duration-500 ease-custom border-4
              border-transparent ${!isDark?"hover:border-blue-50":"hover:border-blue-600"} ${!isDark?"text-white":""} mt-5`}>
                 <h1 className='text-2xl font-bold'>LATEST DONATIONS</h1>
                 <ul className='mt-5'>

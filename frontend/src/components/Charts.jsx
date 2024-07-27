@@ -63,7 +63,7 @@ const Charts = () => {
     
   return (
     
-    <div className={`flex h-[200px] w-[70%] mt-5 justify-center text-white ${!isDark?"bg-slate-800":""}`}>
+    <div className={`flex sm:h-[200px] sm:w-[70%] w-[99%] mt-5 justify-center text-white ${!isDark?"bg-slate-800":""}`}>
       <Bar data={data} options={options} width="400px" height={"100px"}/>
     </div>
   )
