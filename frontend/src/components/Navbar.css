@@ -21,6 +21,10 @@
     background: linear-gradient(165deg, rgba(11,110,166,1) 0%, rgba(23,64,150,1) 30%, rgba(19,65,143,1) 43%, rgba(0,212,255,1) 100%);
     border-radius: 4px;
   }
+
+  #nav-opener{
+    background: linear-gradient(165deg, rgba(11,110,166,1) 0%, rgba(23,64,150,1) 30%, rgba(19,65,143,1) 43%, rgba(0,212,255,1) 100%);
+  }
   
   #bar2 {
     transition-duration: .8s;

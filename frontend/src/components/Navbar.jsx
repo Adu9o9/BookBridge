@@ -12,6 +12,9 @@ import Button  from '@mui/material/Button';
 
 import './Navbar.css'
 
+import { Menu, MenuItem, IconButton } from '@mui/material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,8 +25,8 @@ const Transition = forwardRef(function Transition(props, ref) {
 const Navbar = () => {
   const {isDark , setIsDark} = useBackground();
   const [check , setChecked] = useState(false);
-
   const [open, setOpen] = useState(false);
+  const [openMore , setOpenMore] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,6 +43,30 @@ const Navbar = () => {
     setChecked(e.target.checked);
     setIsDark(check);
   }
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleProfileClick = () => {
+    // Handle profile click
+    console.log('Profile clicked');
+    handleMenuClose();
+  };
+
+  const handleLogoutClick = () => {
+    // Handle logout click
+    console.log('Logout clicked');
+    handleMenuClose();
+  };
+
+  
   return (
     <div>
         <div className={`flex flex-row w-[100%] rounded-t-xl ${!isDark?"bg-slate-400":"bg-slate-200"} opacity-1 h-20 flex-wrap`} id='navbar'>
@@ -150,17 +177,41 @@ const Navbar = () => {
                     </button>
 
                 </div>
-                <div id='nav-button-holder-sm' className='sm:hidden flex justify-center gap-10'>
-                    < input type="checkbox" id="checkbox"/>
-                        <label for="checkbox" class="toggle">
+                
+                </div>
+                {/*translate-x-[-110%]*/ }
+                {/* <div id='nav-opener' className='flex flex-col w-[92%] left-4 top-24 h-full bg-blue-500 fixed z-10 '>
+                  <div id='nav-opener-container' className='h-1/2 bg-red-500 '></div>
+                </div> */}
+
+                <div>
+                  <IconButton
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls="customized-menu"
+                    aria-haspopup="true"
+                    onClick={handleMenuOpen}
+                    color="inherit"
+                  >
+                    <div id='nav-button-holder-sm' className='sm:hidden flex justify-center gap-10'>
+                      < input type="checkbox" id="checkbox" value={openMore} onClick={anchorEl?handleMenuClose:handleMenuOpen}/>
+                          <label for="checkbox" class="toggle">
                             <div className="bars" id="bar1"></div>
                             <div className="bars" id="bar2"></div>
                             <div className="bars" id="bar3"></div>
                         </label>
-                </div>
-                </div>
-                <div id='nav-opener' className='flex flex-col w-[90%] left-4 top-24 h-full bg-blue-500 absolute'>
-                  <div id='nav-opener-container' className='h-1/2 bg-red-500'></div>
+                    </div>
+                  </IconButton>
+                  <Menu
+                    id="customized-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleMenuClose}
+                  >
+                    <MenuItem onClick={handleProfileClick}>Profile</MenuItem>
+                    <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
+                  </Menu>
                 </div>
 
                 
