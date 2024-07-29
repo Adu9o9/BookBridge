@@ -14,3 +14,11 @@ body {
     padding: 0px;
     max-width: 2000px;
   }
+  @layer base {
+    body{
+      background-color: black;
+    }
+  }
+  .slick-slide > div {
+    margin: 0 10px;
+  }
