@@ -17,16 +17,16 @@ const Aboutus = () => {
     <div className='mt-20'>
      <Slider {...settings}>
        {data.map((d) => (
-        <div className='bg-white h-[450px] text-black rounded-xl'>
-          <div className='rounded-t-xl bg-orange-950 flex justify-center items-center'>
-            <img src={d.img} alt='' className='h-44 w-44 rounded-full'/>
+        <div className='bg-w h-[450px] text-black rounded-xl'>
+          <div className='rounded-t-xl bg-orange-400 flex justify-center items-center h-[300px]'>
+            <img src={d.img} alt='' className='h-60 w-60 rounded-full px-2 py-2'/>
           </div>
-           <div className='flex flex-col justify-center items-center gap-4 p-4'>
-            <p className='text-xl font-semibold'>{d.name}</p>
-            <p>{d.review}</p>
-            <a href='www.linkedin.com/in/adinath-manoj-nambiar-3b1b75292'>
-               <button className=' bg-orange-950 text-white text-xl px-6 py-1 rounded-xl'>
-                Connect with me!
+           <div className=' bg-blue-300 flex flex-col justify-center items-center gap-4 p-4'>
+            <p className='text-xl font-semibold px-2 top-1'>{d.name}</p>
+            <p className='top-1'>{d.review}</p>
+            <a href='https://www.linkedin.com/in/adinath-manoj-nambiar-3b1b75292/' target="_blank" previewlistener="true">
+               <button className=' top-0 bg-orange-400 text-white text-xl px-6 py-1 rounded-xl'>
+                Lets Connect!
                </button>
             </a>
            </div>
@@ -45,27 +45,27 @@ const Aboutus = () => {
 const data = [
   {
     name: `Amal Varghese`,
-    img: `/students/image_3.jpeg`,
+    img: `/students/WhatsApp Image 2024-07-29 at 13.10.15.jpeg`,
     review: 'Perumbavoor'
   },
   {
     name: `Pranav Paul`,
-    img: `/students/image_2.jpeg`,
+    img: `/students/WhatsApp Image 2024-07-29 at 13.10.15.jpeg`,
     review: `Angamaly`
   },
   {
     name: `Adinath Manoj`,
-    img: `/students/image_3.jpeg`,
+    img: `/students/WhatsApp Image 2024-07-29 at 13.10.15.jpeg`,
     review: `Kannur`
   },
   {
     name: `Cebin Mec`,
-    img: `/students/image_4.jpeg`,
+    img: `/students/WhatsApp Image 2024-07-29 at 13.10.15.jpeg`,
     review: `Thudapuzha`
   },
   {
     name: `Alan M Varghese`,
-    img: `/students/image_5.jpeg`,
+    img: `/students/WhatsApp Image 2024-07-29 at 13.10.15.jpeg`,
     review: `Kollam`
   },
   
